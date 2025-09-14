@@ -83,6 +83,86 @@
       // console.log(numberToWords(215));
 
       // 5 dahi bodlog
+      //   function pyramid(n) {
+      //     for (let i = 1; i <= n; i++) {
+      //       // 1. Зай (spaces) хэвлэх
+      //       let spaces = " ".repeat(n - i);
+
+      //       // 2. Өсөх дараалал хэвлэх
+      //       let inc = "";
+      //       for (let j = 1; j <= i; j++) {
+      //         inc += j;
+      //       }
+
+      //       // 3. Буурах дараалал хэвлэх
+      //       let dec = "";
+      //       for (let j = i - 1; j >= 1; j--) {
+      //         dec += j;
+      //       }
+      //       console.log(spaces + inc + dec);
+      //     }
+      //   }
+      //       function pyramid(n) {
+      //   for (let i = 1; i <= n; i++) {
+      //     const spaces = ' '.repeat(n - i);
+
+      //     // өсөх дараалал: 1..i
+      //     const inc = Array.from({ length: i }, (_, k) => k + 1).join('');
+
+      //     // буурах дараалал: i-1..1
+      //     const dec = Array.from({ length: i - 1 }, (_, k) => i - 1 - k).join('');
+
+      //     console.log(spaces + inc + dec);
+      //   }
+      // }
+
+      // pyramid(5);
+
+      //   pyramid(10);
+      // bodlog6
+      function stringStats(str) {
+        let letters = 0;
+        let digits = 0;
+        let spaces = 0;
+        let symbols = 0;
+        let freq = {}; // тэмдэгт бүрийн давталт хадгалах объект
+
+        for (let char of str) {
+          if (/[a-zA-Z]/.test(char)) {
+            letters++;
+          } else if (/[0-9]/.test(char)) {
+            digits++;
+          } else if (char === " ") {
+            spaces++;
+          } else {
+            symbols++;
+          }
+
+          // давталт тоолох
+          freq[char] = (freq[char] || 0) + 1;
+        }
+
+        // хамгийн их давтагдсан тэмдэгт олох
+        let maxChar = "";
+        let maxCount = 0;
+        for (let key in freq) {
+          if (freq[key] > maxCount) {
+            maxCount = freq[key];
+            maxChar = key;
+          }
+        }
+
+        console.log(`Үсэг: ${letters}`);
+        console.log(`Тоо: ${digits}`);
+        console.log(`Тэмдэгт: ${symbols}`);
+        console.log(`Зай: ${spaces}`);
+        console.log(
+          `Хамгийн их орсон тэмдэгт: "${maxChar}" (${maxCount} удаа)`
+        );
+      }
+
+      // Жишээ:
+      stringStats("Hello World 123!");
     </script>
   </head>
   <body></body>
