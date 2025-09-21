@@ -120,175 +120,236 @@
 
       //   pyramid(10);
       // bodlog6
-      function stringStats(str) {
-        let letters = 0;
-        let digits = 0;
-        let spaces = 0;
-        let symbols = 0;
-        let freq = {}; // тэмдэгт бүрийн давталт хадгалах объект
+      // function stringStats(str) {
+      //   let letters = 0;
+      //   let digits = 0;
+      //   let spaces = 0;
+      //   let symbols = 0;
+      //   let freq = {}; // тэмдэгт бүрийн давталт хадгалах объект
 
-        for (let char of str) {
-          if (/[a-zA-Z]/.test(char)) {
-            letters++;
-          } else if (/[0-9]/.test(char)) {
-            digits++;
-          } else if (char === " ") {
-            spaces++;
-          } else {
-            symbols++;
-          }
+      //   for (let char of str) {
+      //     if (/[a-zA-Z]/.test(char)) {
+      //       letters++;
+      //     } else if (/[0-9]/.test(char)) {
+      //       digits++;
+      //     } else if (char === " ") {
+      //       spaces++;
+      //     } else {
+      //       symbols++;
+      //     }
 
-          // давталт тоолох
-          freq[char] = (freq[char] || 0) + 1;
-        }
+      //     // давталт тоолох
+      //     freq[char] = (freq[char] || 0) + 1;
+      //   }
 
-        // хамгийн их давтагдсан тэмдэгт олох
-        let maxChar = "";
-        let maxCount = 0;
-        for (let key in freq) {
-          if (freq[key] > maxCount) {
-            maxCount = freq[key];
-            maxChar = key;
-          }
-        }
+      //   // хамгийн их давтагдсан тэмдэгт олох
+      //   let maxChar = "";
+      //   let maxCount = 0;
+      //   for (let key in freq) {
+      //     if (freq[key] > maxCount) {
+      //       maxCount = freq[key];
+      //       maxChar = key;
+      //     }
+      //   }
 
-        console.log(`Үсэг: ${letters}`);
-        console.log(`Тоо: ${digits}`);
-        console.log(`Тэмдэгт: ${symbols}`);
-        console.log(`Зай: ${spaces}`);
-        console.log(
-          `Хамгийн их орсон тэмдэгт: "${maxChar}" (${maxCount} удаа)`
-        );
-      }
-      // Жишээ:
-      stringStats("Hello World 123!");
-      // bodlog7
-      function minutesBetween(time1, time2) {
-        // Цаг, минутыг салгах функц
-        function toMinutes(t) {
-          let [h, m] = t.split(":").map(Number);
-          return h * 60 + m;
-        }
+      //   console.log(`Үсэг: ${letters}`);
+      //   console.log(`Тоо: ${digits}`);
+      //   console.log(`Тэмдэгт: ${symbols}`);
+      //   console.log(`Зай: ${spaces}`);
+      //   console.log(
+      //     `Хамгийн их орсон тэмдэгт: "${maxChar}" (${maxCount} удаа)`
+      //   );
+      // }
+      // // Жишээ:
+      // stringStats("Hello World 123!");
+      // // bodlog7
+      // function minutesBetween(time1, time2) {
+      //   // Цаг, минутыг салгах функц
+      //   function toMinutes(t) {
+      //     let [h, m] = t.split(":").map(Number);
+      //     return h * 60 + m;
+      //   }
 
-        let start = toMinutes(time1);
-        let end = toMinutes(time2);
+      //   let start = toMinutes(time1);
+      //   let end = toMinutes(time2);
 
-        // Зөрүү тооцох
-        let diff = end - start;
+      //   // Зөрүү тооцох
+      //   let diff = end - start;
 
-        // Хэрэв сүүлчийн цаг жижиг бол дараа өдөр гэж үзнэ
-        if (diff < 0) {
-          diff += 24 * 60; // 1440 минут
-        }
+      //   // Хэрэв сүүлчийн цаг жижиг бол дараа өдөр гэж үзнэ
+      //   if (diff < 0) {
+      //     diff += 24 * 60; // 1440 минут
+      //   }
 
-        return diff;
-      }
+      //   return diff;
+      // }
 
-      // Жишээ
-      console.log(minutesBetween("09:30", "14:45")); // 315
-      console.log(minutesBetween("23:30", "01:15")); // 105
-      // bodlog8
-      function moneyChange(amount) {
-        const coins = [
-          20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1,
-        ];
-        const result = {};
+      // // Жишээ
+      // console.log(minutesBetween("09:30", "14:45")); // 315
+      // console.log(minutesBetween("23:30", "01:15")); // 105
+      // // bodlog8
+      // function moneyChange(amount) {
+      //   const coins = [
+      //     20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1,
+      //   ];
+      //   const result = {};
 
-        for (let coin of coins) {
-          if (amount >= coin) {
-            let count = Math.floor(amount / coin); // тухайн мөнгөнөөс хэдэн ширхэг орохыг олно
-            result[coin] = count;
-            amount = amount % coin; // үлдэгдэлд шилжүүлнэ
-          }
-        }
-        return result;
-      }
+      //   for (let coin of coins) {
+      //     if (amount >= coin) {
+      //       let count = Math.floor(amount / coin); // тухайн мөнгөнөөс хэдэн ширхэг орохыг олно
+      //       result[coin] = count;
+      //       amount = amount % coin; // үлдэгдэлд шилжүүлнэ
+      //     }
+      //   }
+      //   return result;
+      // }
 
-      // Туршилт
-      console.log(moneyChange(27650));
+      // // Туршилт
+      // console.log(moneyChange(27650));
 
-      // 2heseg
-      function moneyChange(amount) {
-        const coins = [
-          20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1,
-        ];
-        const result = [];
+      // // 2heseg
+      // function moneyChange(amount) {
+      //   const coins = [
+      //     20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1,
+      //   ];
+      //   const result = [];
 
-        for (let coin of coins) {
-          if (amount >= coin) {
-            let count = Math.floor(amount / coin);
-            result.push(`${coin}₮ → ${count}ш`);
-            amount %= coin;
-          }
-        }
-        return result.join(", ");
-      }
+      //   for (let coin of coins) {
+      //     if (amount >= coin) {
+      //       let count = Math.floor(amount / coin);
+      //       result.push(`${coin}₮ → ${count}ш`);
+      //       amount %= coin;
+      //     }
+      //   }
+      //   return result.join(", ");
+      // }
 
-      // Туршилт
-      console.log(moneyChange(27650));
+      // // Туршилт
+      // console.log(moneyChange(27650));
 
-      // bodlog9
-      function nextThreeNumbers(seq) {
-        const n = seq.length;
+      // // bodlog9
+      // function nextThreeNumbers(seq) {
+      //   const n = seq.length;
 
-        // 1. Хэрвээ ялгаа тогтмол байвал (арифметик прогресс)
-        let diff = seq[1] - seq[0];
-        let isArithmetic = seq.every(
-          (val, i) => i === 0 || val - seq[i - 1] === diff
-        );
-        if (isArithmetic) {
-          return [1, 2, 3].map((i) => seq[n - 1] + i * diff);
-        }
+      //   // 1. Хэрвээ ялгаа тогтмол байвал (арифметик прогресс)
+      //   let diff = seq[1] - seq[0];
+      //   let isArithmetic = seq.every(
+      //     (val, i) => i === 0 || val - seq[i - 1] === diff
+      //   );
+      //   if (isArithmetic) {
+      //     return [1, 2, 3].map((i) => seq[n - 1] + i * diff);
+      //   }
 
-        // 2. Хэрвээ квадрат тоо байвал
-        let isSquare = seq.every((val) => Number.isInteger(Math.sqrt(val)));
-        if (isSquare) {
-          let lastRoot = Math.sqrt(seq[n - 1]);
-          return [1, 2, 3].map((i) => Math.pow(lastRoot + i, 2));
-        }
+      //   // 2. Хэрвээ квадрат тоо байвал
+      //   let isSquare = seq.every((val) => Number.isInteger(Math.sqrt(val)));
+      //   if (isSquare) {
+      //     let lastRoot = Math.sqrt(seq[n - 1]);
+      //     return [1, 2, 3].map((i) => Math.pow(lastRoot + i, 2));
+      //   }
 
-        // 3. Хэрвээ Фибоначи байвал
-        let isFibo = true;
-        for (let i = 2; i < n; i++) {
-          if (seq[i] !== seq[i - 1] + seq[i - 2]) {
-            isFibo = false;
-            break;
-          }
-        }
-        if (isFibo) {
-          let a = seq[n - 2],
-            b = seq[n - 1];
-          let result = [];
-          for (let i = 0; i < 3; i++) {
-            let c = a + b;
-            result.push(c);
-            a = b;
-            b = c;
-          }
-          return result;
-        }
+      //   // 3. Хэрвээ Фибоначи байвал
+      //   let isFibo = true;
+      //   for (let i = 2; i < n; i++) {
+      //     if (seq[i] !== seq[i - 1] + seq[i - 2]) {
+      //       isFibo = false;
+      //       break;
+      //     }
+      //   }
+      //   if (isFibo) {
+      //     let a = seq[n - 2],
+      //       b = seq[n - 1];
+      //     let result = [];
+      //     for (let i = 0; i < 3; i++) {
+      //       let c = a + b;
+      //       result.push(c);
+      //       a = b;
+      //       b = c;
+      //     }
+      //     return result;
+      //   }
 
-        // 4. n*(n+1) дараалал
-        let isNprod = true;
-        for (let i = 0; i < n; i++) {
-          if (seq[i] !== (i + 1) * (i + 2)) {
-            isNprod = false;
-            break;
-          }
-        }
-        if (isNprod) {
-          let lastIndex = n;
-          return [1, 2, 3].map((i) => (lastIndex + i) * (lastIndex + i + 1));
-        }
+      //   // 4. n*(n+1) дараалал
+      //   let isNprod = true;
+      //   for (let i = 0; i < n; i++) {
+      //     if (seq[i] !== (i + 1) * (i + 2)) {
+      //       isNprod = false;
+      //       break;
+      //     }
+      //   }
+      //   if (isNprod) {
+      //     let lastIndex = n;
+      //     return [1, 2, 3].map((i) => (lastIndex + i) * (lastIndex + i + 1));
+      //   }
 
-        return "Дараалал танигдсангүй";
-      }
+      //   return "Дараалал танигдсангүй";
+      // }
 
-      // Жишээ туршилт
-      console.log(nextThreeNumbers([2, 4, 6, 8])); // [10,12,14]
-      console.log(nextThreeNumbers([1, 4, 9, 16])); // [25,36,49]
-      console.log(nextThreeNumbers([1, 1, 2, 3, 5])); // [8,13,21]
-      console.log(nextThreeNumbers([2, 6, 12, 20])); // [30,42,56]
+      // // Жишээ туршилт
+      // console.log(nextThreeNumbers([2, 4, 6, 8])); // [10,12,14]
+      // console.log(nextThreeNumbers([1, 4, 9, 16])); // [25,36,49]
+      // console.log(nextThreeNumbers([1, 1, 2, 3, 5])); // [8,13,21]
+      // console.log(nextThreeNumbers([2, 6, 12, 20])); // [30,42,56]
+
+      // section2
+      // bodlog11
+      // const nums = [3, 7, 1, 9, 6];
+      // let last = nums.at(-1);
+      // // console.log(nums.length);
+      // // // bodlog12
+      // // console.log(nums[0]);
+      // console.log(last);
+
+      // bodlog13
+      // const a = [1, 2];
+      // const b = [3, 4];
+      // let concat = [1, 2].concat([3, 4]);
+      // let merge = [...a, ...b];
+      // console.log(merge);
+
+      // bodlog14
+      // const nums = [5, 10, 15, 200];
+      // let sum = nums.reduce((acc, val) => acc + val, 0);
+      // console.log(sum);
+
+      // String авч, хамгийн урт палиндром substring буцаа.
+      // Жишээ: "babad" → "bab" эсвэл "aba"
+      // function subPalindromes(str) {
+      //   let result = [];
+
+      //   function expand(left, right) {
+      //     while (left >= 0 && right < str.length && str[left] === str[right]) {
+      //       if (right - left + 1 > 1) {
+      //         result.push(str.slice(left, right + 1));
+      //       }
+      //       left--;
+      //       right++;
+      //     }
+      //   }
+
+      //   for (let i = 0; i < str.length; i++) {
+      //     expand(i, i); // odd length
+      //     expand(i, i + 1); // even length
+      //   }
+
+      //   return result;
+      // }
+
+      // let bigNum = "12812937977821979123012830128304978214678";
+      // console.log(subPalindromes(bigNum));
+      // function gcd(a, b) {
+      //   while (b !== 0) {
+      //     let temp = b;
+      //     b = a % b;
+      //     a = temp;
+      //   }
+      //   return a;
+      // }
+      // let input = prompt("Хоёр натурал тоо оруул (зайгаар тусгаарла):");
+
+      // let [x, y] = input.split(" ").map(Number);
+
+      // alert("ХИЕХ = " + gcd(x, y));
+      // console.log("ХИЕХ =", gcd(x, y));
     </script>
   </head>
   <body></body>
